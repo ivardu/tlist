@@ -1,0 +1,90 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tracker List</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	
+
+</head>
+<body>
+	<!-- Title bar -->
+	<div class="nav_bar_clists">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Tracker List</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item">
+			        <a class="nav-link create-cls" href="#">Create</a>
+			      </li>
+<!-- 			      <li class="nav-item">
+			        <a class="nav-link" href="#">Link</a>
+			      </li>
+			      <li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Later
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="#">Action</a>
+			          <a class="dropdown-item" href="#">Another action</a>
+			          <div class="dropdown-divider"></div>
+			          <a class="dropdown-item" href="#">Something else here</a>
+			        </div>
+			      </li> -->
+			      <li class="nav-item">
+			        <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+			      </li>
+			    </ul>
+			    <ul class="navbar-nav ml-auto">
+			      <li class="nav-item">
+			        <a class="nav-link lgn" href="#">Login</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link sgp" href="#">SignUp</a>
+			      </li>
+
+			</div>
+		</nav>
+		
+	</div>
+	<!-- Main section of the web page -->
+	<div class="mn_sec">
+		<div class="col-md-6 mx-auto">
+			<div class="col-md-6">
+				<form>
+					{% csrf_token %}
+					<!-- {% load crispy_forms_tags %} -->
+					<div class="form-row p-2">
+						{{cform}}	
+					</div>
+					<div class="form-row mt-2">
+						<div class="form-group col-md-5">
+							{{iform.items}}
+						</div>	
+						<div class="form-group col-md-6">
+							{{iform.status}}
+						</div>
+						<div class="form-group col-md-1">
+							<h1>+</h1>
+						</div>
+					</div>
+
+				</form>	
+			</div>
+
+		</div>
+	</div>
+	<!-- Bottom section of the web page -->
+	<div>
+		
+	</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/clts_js_tmp.js'%}"></script>
+</body>
+</html>
