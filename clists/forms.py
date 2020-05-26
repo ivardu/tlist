@@ -12,8 +12,9 @@ class CheckListForm(forms.ModelForm):
 
 class ItemsForm(forms.ModelForm):
 
-	items = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-	status = forms.ChoiceField(choices=STATUS_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
+	items = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control item-ip'}))
+	# status = forms.ChoiceField(choices=STATUS_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
+	status = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class':'custom-control-input','id':'customSwitch1'}), required=False)
 	class Meta:
 		model = Items
 		fields = ['items', 'status']

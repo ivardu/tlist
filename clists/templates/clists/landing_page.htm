@@ -55,29 +55,41 @@
 	</div>
 	<!-- Main section of the web page -->
 	<div class="mn_sec">
-		<div class="col-md-6 mx-auto">
-			<div class="col-md-6">
+		<div class="col-md-8 mx-auto" id='tldv'>
+			<div class="col-md-10">
 				<form>
 					{% csrf_token %}
 					<!-- {% load crispy_forms_tags %} -->
 					<div class="form-row p-2">
 						{{cform}}	
+						<hr>
 					</div>
-					<div class="form-row mt-2">
-						<div class="form-group col-md-5">
-							{{iform.items}}
-						</div>	
-						<div class="form-group col-md-6">
-							{{iform.status}}
-						</div>
-						<div class="form-group col-md-1">
-							<h1>+</h1>
-						</div>
-					</div>
-
 				</form>	
+				<div class="itms-secdv">
+					<div class="form_container d-flex flex-row mt-2" id='itm_cont'>
+						<form class="iform-cls form-inline">
+							{% csrf_token %}
+							<div class="form-group itm_ip_dv p-2">
+								{{iform.items}}
+							</div>	
+							<div class="form-group custom-control custom-switch ml-3">
+								{{iform.status}}
+								<label class="custom-control-label" for="customSwitch1">Status</label>
+							</div>
+						
+							<div class="form-group ml-3 adderdv">
+								<span class="adder">
+								<svg class="bi bi-plus-circle-fill" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
+								</svg>
+								</span>
+								<!-- <span type="submit" class="remoer align-text-top">-</span> -->
+							</div>
+						</form>
+						
+					</div>
+				</div>
 			</div>
-
 		</div>
 	</div>
 	<!-- Bottom section of the web page -->
@@ -85,6 +97,10 @@
 		
 	</div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{% static 'js/clts_js_tmp.js'%}"></script>
 </body>
 </html>

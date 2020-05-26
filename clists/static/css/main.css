@@ -16,3 +16,20 @@
 	border: none;
 	border-color:transparent;
 }
+.adder, .remoer{
+	display: inline-block;
+	width: 30px;/*
+	height: 30px;*/
+	font-size: 25px;
+	margin-top: -15px;
+	cursor: pointer;
+}
+.adderdv{
+	/*display: inline-block;*/
+	text-align: center;
+	vertical-align: middle;
+}
+
+.item-ip{
+	min-width: 450px;
+}

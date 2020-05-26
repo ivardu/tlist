@@ -10,7 +10,8 @@ STATUS_CHOICES = (
 
 class Items(models.Model):
 	items = models.CharField(max_length=255)
-	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+	# status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+	status = models.BooleanField(default=False)
 
 
 class CheckList(models.Model):
