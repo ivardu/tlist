@@ -3,30 +3,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tracker List</title>
+	<title>Ticklistt</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-	
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
+
+
 
 </head>
 <body>
+<!-- 	<div id="dialog-confirm" title="Are you sure?">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These checklist will be permanently deleted. </p>
+</div> -->
+<!-- <div class="modal-dialog "> -->
+	<!-- data-backdrop="static" -->
+
+<!-- </div> -->
+
 	<!-- Title bar -->
 	<div class="nav_bar_clists">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">Tracker List</a>
+			<a class="navbar-brand" href="{% url 'land_page' %}">Ticklistt</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			    <ul class="navbar-nav mr-auto">
 			      <li class="nav-item">
-			        <a class="nav-link create-cls" href="#">Create</a>
+			        <a class="nav-link create-cls" href="{% url 'create' %}">Create</a>
 			      </li>
-<!-- 			      <li class="nav-item">
-			        <a class="nav-link" href="#">Link</a>
+			      <li class="nav-item">
+			        <a class="nav-link" href="{% url 'myclists' %}">MyChecklists</a>
 			      </li>
-			      <li class="nav-item dropdown">
+			 <!--      <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          Later
 			        </a>
@@ -55,42 +67,18 @@
 	</div>
 	<!-- Main section of the web page -->
 	<div class="mn_sec">
-		<div class="col-md-8 mx-auto" id='tldv'>
-			<div class="col-md-10">
-				<form>
-					{% csrf_token %}
-					<!-- {% load crispy_forms_tags %} -->
-					<div class="form-row p-2">
-						{{cform}}	
-						<hr>
-					</div>
-				</form>	
-				<div class="itms-secdv">
-					<div class="form_container d-flex flex-row mt-2" id='itm_cont'>
-						<form class="iform-cls form-inline">
-							{% csrf_token %}
-							<div class="form-group itm_ip_dv p-2">
-								{{iform.items}}
-							</div>	
-							<div class="form-group custom-control custom-switch ml-3">
-								{{iform.status}}
-								<label class="custom-control-label" for="customSwitch1">Status</label>
-							</div>
-						
-							<div class="form-group ml-3 adderdv">
-								<span class="adder">
-								<svg class="bi bi-plus-circle-fill" width="0.7em" height="0.7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
-								</svg>
-								</span>
-								<!-- <span type="submit" class="remoer align-text-top">-</span> -->
-							</div>
-						</form>
-						
-					</div>
+		{% block body_content %}
+		<div class="col-md-8 mx-auto">
+			<div class="container alert-success">
+				<div class="strt-msg">
+					<span class="hdline pr-1">Start creating the ticklistt according to your need to track the items and their progress..!! </span><a class="hdline btn btn-sm btn-secondary" href="{% url 'create' %}">Create</a>
 				</div>
+			</div> 
+			<div class="shadow-lg border rounded">
+				<img src="{% static 'img/front_cover.JPG' %}">
 			</div>
 		</div>
+		{% endblock body_content %}
 	</div>
 	<!-- Bottom section of the web page -->
 	<div>
@@ -101,6 +89,10 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+
 <script type="text/javascript" src="{% static 'js/clts_js_tmp.js'%}"></script>
 </body>
 </html>
