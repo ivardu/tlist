@@ -1,1 +1,1 @@
-web:gunicorn tlist.wsgi --log-file -
+web: gunicorn tlist.wsgi --log-file -
