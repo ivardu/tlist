@@ -25,7 +25,8 @@ SECRET_KEY = 'a@f1wbf#9b(6^mt^wo(*^9gny=62kdlugp=j!z2!wnd4ype0ag'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ticklistt.herokuapp.com']
 
 
 # Application definition
