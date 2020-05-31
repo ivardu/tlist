@@ -128,7 +128,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 
@@ -148,4 +148,4 @@ AWS_DEFAULT_ACL=None
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-django_heroku.settings(locals(), staticfiles=False)
+django_heroku.settings(locals())
