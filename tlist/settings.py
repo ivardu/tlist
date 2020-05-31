@@ -129,14 +129,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
 
 AWS_ACCESS_KEY_ID=os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_STORAGE_BUCKET_NAME=os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_DEFAULT_ACL=None
 
+# settings for s3 storage
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
