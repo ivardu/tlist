@@ -128,6 +128,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
 
 AWS_ACCESS_KEY_ID=os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_STORAGE_BUCKET_NAME=os.environ.get('AWS_STORAGE_BUCKET_NAME')
@@ -136,8 +139,7 @@ AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY')
 # AWS_LOCATION='static'
 AWS_DEFAULT_ACL=None
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+
 
 
 # STATIC_URL = 'https://%s/%s/'%(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
