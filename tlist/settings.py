@@ -122,8 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -136,6 +135,9 @@ AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY')
 # AWS_S3_CUSTOM_DOMAIN='%s.s3.amazonaws.com'%AWS_STORAGE_BUCKET_NAME
 # AWS_LOCATION='static'
 AWS_DEFAULT_ACL=None
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
 
 
 # STATIC_URL = 'https://%s/%s/'%(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
