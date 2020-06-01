@@ -110,7 +110,7 @@ $(function(){
 		// Empty items fields generator
 		function itemAdder(){
 			$(this).parents('.itms-secdv').append('<div class="lintothis"></div>');
-			$(this).parents('.itms-secdv').find('.lintothis').load('/static/html/temp.html #itm-cont', function(){
+			$(this).parents('.itms-secdv').find('.lintothis').load('https://ticklistt.s3.amazonaws.com/static/html/temp.html #itm-cont', function(){
 				// console.log($(this).attr('class'));
 				$(this).attr('class','lintothis_old');
 				// console.log($(this).attr('class'));
@@ -205,7 +205,7 @@ $(function(){
 		}
 		// Adding the Squarecheck
 		function remCompl(){
-			$(this).parents('.form_container').find('.compl').load('/static/html/temp.html #Squarecheck', function(){
+			$(this).parents('.form_container').find('.compl').load('https://ticklistt.s3.amazonaws.com/static/html/temp.html #Squarecheck', function(){
 					console.log('Added Squarecheck');
 				});
 		}
