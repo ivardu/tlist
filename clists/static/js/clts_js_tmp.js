@@ -228,27 +228,6 @@ $(function(){
 
 // Delete functoinality
 $(function(){
-	// $.extend( $.ui.dialog.prototype.options.classes, {
- //    "ui-dialog": "modal-content",
- //    "ui-dialog-titlebar": "modal-header",
- //    "ui-dialog-title": "modal-title",
- //    "ui-dialog-titlebar-close": "close",
- //    "ui-dialog-content": "modal-body",
- //    "ui-dialog-buttonpane": "modal-footer"
-	// });
-	// $("#dialog-confirm").dialog({ 
-	// 	autoOpen: false,
-	// 	modal:true, 
-	// 	buttons: {
- //        Cancel: function() {
- //            $(this).dialog('close');
- //            console.log(this);
- //        },
- //        Delete: function() {
- //            $(this).dialog('close');
- //        }
- //    }
-	// });
 	$('#staticBackdrop').modal('hide');
 	$('.mn_sec').on('click', '.del', function(event){
 		event.preventDefault();
@@ -279,11 +258,11 @@ $(function(){
 	});
 
 	$('#sBdrop').modal('hide');
-	$('.mn_sec').on('click', '.lgn', function(event){
+	$('.lgn').on('click', function(event){
 		event.preventDefault();
 		// $('#dialog-confirm').dialog({});
 		// var this_c = $(this)
-		// console.log(this_c)
+		console.log('Am I here..?')
 		$('#sBdrop').modal('show');
 	});
 

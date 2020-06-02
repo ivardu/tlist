@@ -34,7 +34,9 @@
 	      </div> -->
 	      <div class="modal-body">
 	      	<span>Login with Google to continue.. !!</span>
-	        <div id="my-signin2"></div>
+	        <div id="my-signin2">
+	        	<a href="{% provider_login_url 'google' %}"><img class="g-img" src="{% static 'static/img/btn_google_signin_light_focus_web@2x.png' %}"></a>
+	        </div>
 	      </div>
 	      <div class="modal-footer">
 <!-- 	        <button id='mod-can' type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
@@ -115,8 +117,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-<script type="text/javascript" src="{% static 'static/js/clts_js_tmp.js'%}"></script>
-<script>
+<!-- <script type="text/javascript" src="{% static 'static/js/clts_js_tmp.js'%}"></script> -->
+<!-- <script>
     // function onSuccess(googleUser) {
     //   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
     // }
@@ -134,6 +136,6 @@
         // 'onfailure': onFailure
       });
     }
-  </script>
+  </script> -->
 </body>
 </html>
