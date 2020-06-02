@@ -278,4 +278,12 @@ $(function(){
 		
 	});
 
+	$('#sBdrop').modal('hide');
+	$('.mn_sec').on('click', '.lgn', function(event){
+		event.preventDefault();
+		// $('#dialog-confirm').dialog({});
+		// var this_c = $(this)
+		// console.log(this_c)
+		$('#staticBackdrop').modal('show');
+
 });
