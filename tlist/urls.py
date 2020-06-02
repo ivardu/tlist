@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', cv.clist_landing_page, name='land_page'),
     path('clists/', include('clists.urls')),
+    # Adding the urls for the allauth social login
+    path('accounts/',include('allauth.urls')),
 ]
