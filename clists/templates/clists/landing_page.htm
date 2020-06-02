@@ -61,22 +61,9 @@
 			      <li class="nav-item">
 			        <a class="nav-link" href="{% url 'myclists' %}">MyChecklists</a>
 			      </li>
-			 <!--      <li class="nav-item dropdown">
-			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Later
-			        </a>
-			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			          <a class="dropdown-item" href="#">Action</a>
-			          <a class="dropdown-item" href="#">Another action</a>
-			          <div class="dropdown-divider"></div>
-			          <a class="dropdown-item" href="#">Something else here</a>
-			        </div>
-			      </li> -->
-			      <li class="nav-item">
-			        <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-			      </li>
 			    </ul>
 			    <ul class="navbar-nav ml-auto">
+			    {% block nav_bar %}
 			      <li class="nav-item">
 			      	<!-- href="{% provider_login_url 'google' %} -->
 			        <button class="nav-link btn btn-sm lgn">Login</button>
@@ -84,6 +71,7 @@
 			      <li class="nav-item">
 			        <a class="nav-link sgp" href="#">SignUp</a>
 			      </li>
+			    {% endblock nav_bar %}
 
 			</div>
 		</nav>

@@ -119,7 +119,7 @@ AUTHENTICATION_BACKENDS = [
 
 # site-id and redirect url after login 
 SITE_ID = 2
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/create/'
 
 # Email Scope to receive users email addr info after login
 
