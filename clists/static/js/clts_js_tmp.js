@@ -285,5 +285,6 @@ $(function(){
 		// var this_c = $(this)
 		// console.log(this_c)
 		$('#sBdrop').modal('show');
+	});
 
 });
