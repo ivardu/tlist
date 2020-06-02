@@ -284,6 +284,6 @@ $(function(){
 		// $('#dialog-confirm').dialog({});
 		// var this_c = $(this)
 		// console.log(this_c)
-		$('#staticBackdrop').modal('show');
+		$('#sBdrop').modal('show');
 
 });
