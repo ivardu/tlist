@@ -5,17 +5,22 @@ from django.db import IntegrityError
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import DeleteView
 # from django.conf.urls import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from clists.forms import CheckListForm, ItemsForm
 from clists.models import Items, CheckList
 
 
 # Adding title for the CheckList Template
+@login_required
 def add_title(request):
+	print(request.user)
 	if request.method == 'POST':
 		tform = CheckListForm(request.POST)
 		if tform.is_valid():
-			tobj = tform.save()
+			tobj = tform.save(commit=False)
+			tobj.user = request.user
+			tobj.save()
 			data = {
 				'title':tobj.title,
 				'id':tobj.id,
@@ -23,6 +28,8 @@ def add_title(request):
 			return JsonResponse(data)
 		else:
 			print(tform.errors)
+	else:
+		print('error')
 
 # Ticklistt home page
 def clist_landing_page(request):
@@ -31,12 +38,13 @@ def clist_landing_page(request):
 	return render(request, 'clists/landing_page.htm')
 
 # Checklist create view on the ticklistt web app
+@login_required
 def create(request):
 	cform = CheckListForm()
 	iform = ItemsForm()
 	return render(request, 'clists/create.html', locals())
 
-
+@login_required
 def items_data_add(request, id):
 	try:
 		ctitle = CheckList.objects.get(pk=id)
@@ -81,7 +89,7 @@ def items_data_add(request, id):
 
 
 # Edit existing items model object
-
+@login_required
 def items_data_edit(request, id):
 	try:
 		itm_obj = Items.objects.get(pk=id)
@@ -106,7 +114,7 @@ def items_data_edit(request, id):
 	else:
 		pass 
 
-
+@login_required
 def items_data_del(request, id):
 	try:
 		items = Items.objects.get(pk=id)
@@ -137,7 +145,7 @@ class ClistsView(DetailView):
 # 	model = CheckList
 # 	success_url = reverse_lazy('myclists')
 
-
+@login_required
 def clists_delete_view(request, id):
 	try:
 		# print('hello')

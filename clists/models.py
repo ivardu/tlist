@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+from users.models import TUser
 
 # Create your models here.
 
@@ -12,14 +13,14 @@ STATUS_CHOICES = (
 class CheckList(models.Model):
 	title = models.CharField(max_length=255)
 	date = models.DateTimeField(auto_now_add=True)
-	# items = models.ForeignKey(Items, on_delete=models.CASCADE)
+	user = models.ForeignKey(TUser, on_delete=models.CASCADE)
 
 
 	def __str__(self):
 		return self.title
 
 	def get_absolute_url(self):
-		return reverse('clistview',args=(self.id,))
+		return reverse('clists:clistview',args=(self.id,))
 
 	# def date_info(self):
 	# 	return self.date.date()

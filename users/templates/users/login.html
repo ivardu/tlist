@@ -1,0 +1,33 @@
+{% extends 'clists/landing_page.htm' %}
+<!-- {% load crispy_forms_tags %} -->
+{% block navibar %}
+{% endblock navibar %}
+{% block body_content %}
+<div class="container">
+	<div class="col-md-6 shadow-lg p-3 mx-auto">
+		<div class="titdiv-sgnp">
+			<span class="ttitle">Ticklistt</span>
+			<!-- <span class="">Enter the below details to Register your account</span> -->
+		</div>
+		<form method="post">
+			{% csrf_token %}
+			{{form|crispy}}
+			<div class="sgnpbtn">
+			 	<input class="btn btn-secondary" type="submit" name="submit" value="Login">
+			 	<a class="lgn ml-2" href="#">Forgot your password..?</a>
+			 </div>
+		</form>
+		<div class="lg-ft mt-3 p-2">
+			<div class="lgn-btm wlc-txt">
+				<span class="small p-1">Don't have an account</span><a class="small" href="{% url 'signup' %}">SignUp</a>
+			</div>
+			<div class="wlc-txt">
+		      		<span class="mb-2 small">(or)</span>
+		    </div>
+			<div class="lgn-btm wlc-txt">
+				<a href='' class="small lgn">Sign with different options</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body_content %}

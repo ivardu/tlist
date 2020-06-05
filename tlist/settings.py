@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['ticklistt.herokuapp.com']
 
 INSTALLED_APPS = [
     'clists.apps.ClistsConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -117,9 +118,21 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-# site-id and redirect url after login 
-SITE_ID = 2
-LOGIN_REDIRECT_URL = '/create/'
+# site-id and redirect url after login and logout
+SITE_ID = 4
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'clists:create'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'land_page'
+
+# Django all auth settings for custom user model not having username
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+# Custom User model
+AUTH_USER_MODEL = 'users.TUser'
 
 # Email Scope to receive users email addr info after login
 
@@ -142,6 +155,7 @@ SOCIALACCOUNT_PROVIDERS = {
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'te'
 
 TIME_ZONE = 'UTC'
 

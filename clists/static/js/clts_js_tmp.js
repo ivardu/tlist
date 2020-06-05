@@ -49,7 +49,7 @@ $(function(){
 				type:'post',
 				data:form.serialize(),
 				success: function(data){
-					$(this).parents('.tform-cls').replaceWith('<span class="sp-title-cls" id="">'+data.title+'</span>');
+					$(this).parents('.tform-cls').replaceWith('<span class="sp-title-cls" id="val">'+data.title+'</span>');
 					$('.sp-title-cls').attr('id',data.id);
 					// console.log($('.sp-title-cls'));
 
@@ -85,7 +85,7 @@ $(function(){
 				data:form.serialize(),
 				success:function(data){
 					if(data.items){
-						$(this).parents('.form_container').find('.itm_ip_dv').empty().append('<span class="item-ip">'+data.items+'<span>');
+						$(this).parents('.form_container').find('.itm_ip_dv').empty().append('<span class="item-ip item-ip1 ml-2">'+data.items+'<span>');
 						$(this).parents('.form_container').attr('id',data.id);
 						$(this).parents('.form_container').find('.custom-control-input').attr('id','ip'+data.id);
 						$(this).parents('.form_container').find('.custom-control-label').attr('for','ip'+data.id);

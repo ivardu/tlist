@@ -1,5 +1,5 @@
-{% load socialaccount %}
 {% load static %}
+{% load socialaccount %}
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
@@ -7,8 +7,10 @@
 	<title>Ticklistt</title>
 	<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css' %}">
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css' %}"> -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
   <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
 
@@ -33,48 +35,76 @@
 	        </button>
 	      </div> -->
 	      <div class="modal-body">
-	      	<span>Login with Google to continue.. !!</span>
-	        <div id="my-signin2">
-	        	<a href="{% provider_login_url 'google' %}"><img class="g-img" src="{% static 'static/img/btn_google_signin_light_focus_web@2x.png' %}"></a>
+	      	<div class="wlc-txt titdiv-sgnp">
+	      		<span class="ttitle">Ticklistt</span>
+	      		<span>You are almost there to create your favorite checklist</span>
+	      	</div>
+
+	        <div id="my-signin2" class="md-dv">
+	        	<!-- <a href="{% provider_login_url 'google' %}"><img class="g-img" src="{% static 'static/img/btn_google_signin_light_focus_web@2x.png' %}"></a> -->
+	        	<a class='g-b-ig' href="{% provider_login_url 'google' %}"><img class="g-img" src="{% static 'img/btn_google_signin_light_focus_web.png' %}"></a>
+	        </div>
+	       	<div class="wlc-txt">
+	      		<span class="mb-2 small">(or)</span>
+	      	</div>
+	       	<div id="my-signin2" class="md-dv">
+	        	<!-- <a href="{% provider_login_url 'google' %}"><img class="g-img" src="{% static 'static/img/btn_google_signin_light_focus_web@2x.png' %}"></a> -->
+	        	<a class='btn btn-secondary g-b-ig' href="{% url 'login' %}">Login with Ticklistt</a>
 	        </div>
 	      </div>
-	      <div class="modal-footer">
-<!-- 	        <button id='mod-can' type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
-	        <button id='mod-del' type="button" class="btn btn-sm btn-danger">Delete</button> -->
-	      </div>
+<!-- 	      <div class="modal-footer">
+	        <button id='mod-can' type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
+	        <button id='mod-del' type="button" class="btn btn-sm btn-danger">Delete</button>
+	      </div> -->
 	    </div>
 	</div>
 </div>
 
 	<!-- Title bar -->
 	<div class="nav_bar_clists">
+		{% block navibar %}
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="{% url 'land_page' %}">Ticklistt</a>
+			<a class="navbar-brand ttitle" href="{% url 'land_page' %}">Ticklistt</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				{% if user.is_authenticated %}
 			    <ul class="navbar-nav mr-auto">
 			      <li class="nav-item">
-			        <a class="nav-link create-cls" href="{% url 'create' %}">Create</a>
+			        <a class="nav-link create-cls" href="{% url 'clists:create' %}">Create</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="{% url 'myclists' %}">MyChecklists</a>
+			        <a class="nav-link" href="{% url 'clists:myclists' %}">MyChecklists</a>
 			      </li>
 			    </ul>
+			    {% endif %}
 			    <ul class="navbar-nav ml-auto">
-			    {% block nav_bar %}
+				{% if user.is_authenticated %}
+					<li class="nav-item">
+						<button class="nav-link btn btn-sm">{{user.email}}</button>
+					</li>
+					<li class="nav-item">
+						<form method="post" action="{% url 'account_logout' %}">
+							{% csrf_token %}
+							<!-- {% if redirect_field_value %}
+							<input type="hidden" name="{{redirect_field_name}}" value="{{redirect_field_value}}">
+							{% endif %} -->
+							<button type="submit" class="nav-link btn btn-sm sgp">SignOut</button>
+						</form>
+					</li>
+				{% else %}
 			      <li class="nav-item">
-			      	<!-- href="{% provider_login_url 'google' %} -->
 			        <button class="nav-link btn btn-sm lgn">Login</button>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link sgp" href="#">SignUp</a>
+			        <a class="nav-link btn btn-sm sgp" href="{% url 'signup' %}">SignUp</a>
 			      </li>
-			    {% endblock nav_bar %}
-
+				{% endif %}
+				</ul>
 			</div>
 		</nav>
+		{% endblock navibar %}
 		
 	</div>
 	<!-- Main section of the web page -->
@@ -83,11 +113,12 @@
 		<div class="col-md-8 mx-auto">
 			<div class="container alert-success">
 				<div class="strt-msg">
-					<span class="hdline pr-1">Start creating the ticklistt according to your need to track the items and their progress..!! </span><a class="hdline btn btn-sm btn-secondary" href="{% url 'create' %}">Create</a>
+					<span class="hdline pr-1">Start creating the ticklistt as per your need to track the items and their progress..!! </span><a class="hdline btn btn-sm btn-secondary" href="{% url 'clists:create' %}">Create</a>
 				</div>
 			</div> 
 			<div class="shadow-lg border rounded">
-				<img src="{% static 'static/img/front_cover.JPG' %}">
+				<!-- <img src="{% static 'static/img/front_cover.JPG' %}"> -->
+				<img src="{% static 'img/front_cover.JPG' %}">
 			</div>
 		</div>
 		{% endblock body_content %}
@@ -105,7 +136,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-<script type="text/javascript" src="{% static 'static/js/clts_js_tmp.js'%}"></script>
+<!-- <script type="text/javascript" src="{% static 'static/js/clts_js_tmp.js'%}"></script> -->
+<script type="text/javascript" src="{% static 'js/clts_js_tmp.js'%}"></script>
 <!-- <script>
     // function onSuccess(googleUser) {
     //   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());

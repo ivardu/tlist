@@ -1,16 +1,8 @@
 {% extends 'clists/landing_page.htm' %}
 {% load crispy_forms_tags %}
+
+<!-- Body content -->
 {% block body_content %}
-{% block nav_bar %}
-{% if user.is_authenticated %}
-  <li class="nav-item">
-    <button class="nav-link btn btn-sm lgn">{{user.username}}</button>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link sgp" href="#">SignOut</a>
-  </li>
-{% endif %}
-{% endblock nav_bar %}
 <div class="col-md-8 mx-auto" id='tldv'>
 	<div class="col-md-10">
 		<form class="tform-cls">

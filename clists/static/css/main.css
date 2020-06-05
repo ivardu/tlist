@@ -53,6 +53,9 @@ input.title_ip:focus{
 .item-ip{
 	min-width: 450px;
 }
+.item-ip1{
+	min-width: 442px
+}
 .compl{
 	min-width: 35px;
 	min-height: 40px;
@@ -107,6 +110,60 @@ input.title_ip:focus{
 }
 
 .g-img{
-	width: 300px;
-	height: 50px;
+
+	opacity: 0.8;
+}
+
+.md-dv{
+    display: block;
+    padding: 5px;
+    text-align: center;
+}
+
+.modal-body{
+	padding-top: 20px 
+	height: 200px;
+}
+
+.wlc-txt{
+	text-align: center;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	word-wrap: break-word;
+	width:350px;
+	/*margin: 10px; */
+}
+
+.g-b-ig{
+	width: 200px;
+}
+.g-img:hover{
+	opacity: 1.0
+	/*border: 1px solid;*/
+
+}
+
+.sgnpbtn{
+/*	display: block;
+	text-align: center;*/
+}
+
+.lgn-btm{
+	display: block;
+}
+
+.titdiv-sgnp{
+
+	display: block;
+	text-align: center;
+}
+
+.ttitle{
+	font-family: 'Courgette';font-size: 42px;
+	display: block;
+}
+
+.lg-ft{
+	background-color: #ededeb;
 }

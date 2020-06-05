@@ -1,6 +1,8 @@
 from django.urls import path
 from clists import views as cvs 
 
+app_name = 'clists'
+
 urlpatterns = [
 	path('create/', cvs.create, name='create'),
 	path('items/<int:id>/', cvs.items_data_add, name='items_add'),

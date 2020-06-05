@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from clists import views as cv
+from users import views as uv
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +25,7 @@ urlpatterns = [
     path('clists/', include('clists.urls')),
     # Adding the urls for the allauth social login
     path('accounts/',include('allauth.urls')),
+    # Adding the login and signup for the site with site credentials storage 
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('signup/',uv.SignUpView.as_view(), name='signup'),
 ]
