@@ -119,7 +119,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # site-id and redirect url after login and logout
-SITE_ID = 4
+SITE_ID = 6
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'clists:create'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'land_page'
